@@ -47,8 +47,8 @@ function showGallery(currentArray) {
             <a href='${item.link}' target="blank">
               <div class="card__arrow"><i class="fa-solid fa-arrow-right-long"></i></div>
               </a>
-              <a href='#' target="blank">
-              <div class="card__like"><i class="fa-solid fa-heart"></i></div></a>
+              <a >
+              <div class="card__like"><i class="fa-regular fa-heart"></i></div></a>
              
           </div>
       `;

@@ -5,7 +5,6 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-
 body {
   justify-self: center;
   align-items: center;
@@ -141,9 +140,8 @@ a {
 .accordion input[type="checkbox"]:checked + label + .content {
   max-height: 600px;
   padding: 10px 10px 20px;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+  overflow: scroll;
+
 }
 .accordion input[type="checkbox"]:checked + label::before {
   font-family: FontAwesome;
@@ -165,6 +163,7 @@ a {
   position: relative;
   justify-content: center;
   z-index: 1;
+
 }
 .toolCard > * + * {
   margin-top: 1.1em;

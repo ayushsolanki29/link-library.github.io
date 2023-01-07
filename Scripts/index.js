@@ -1,23 +1,10 @@
 "use strict";
-
-// Array for filtering data
 let filterArray = [];
 
 
-// Get current date and format it
-const date = new Date();
-const formattedDate = date
-  .toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  })
-  .replace(/ /g, "-");
- 
-// Show gallery on page
 showGallery(galleryArray);
 
-// Generate HTML elements for the data in the given array
+
 function showGallery(currentArray) {
   document.getElementById("container").innerHTML = "";
 
@@ -27,31 +14,33 @@ function showGallery(currentArray) {
     return groups;
   }, {});
 
-  // Create an accordion element for each group of items
   let accordionHTML = "";
+  let headingNum = 1;
   for (let heading in itemsByHeading) {
     accordionHTML += `
       <ul class="accordion" id="accordion">
         <li id="list">
           <input type="checkbox" name="accordion" id="a${heading}">
-          <label for="a${heading}"> ${heading}</label>
+          <label for="a${heading}"> ${headingNum}. ${heading}</label>
           <div class="content" id="content">
     `;
+    headingNum++;
+  
     itemsByHeading[heading].forEach((item, i) => {
       accordionHTML += `
           <div class="toolCard" id="toolCard">
          
-            <h2 class="card__title">${item.title}</h2>
+            <h2 class="card__title"> ${item.title}</h2>
             <p class="card__content">${item.content}</p>
-            <div class="card__date">Update on ${formattedDate}</div>
+            <div class="card__date">Tags ${item.tags}</div>
             <a href='${item.link}' target="blank">
               <div class="card__arrow"><i class="fa-solid fa-arrow-right-long"></i></div>
               </a>
-              <a >
-              <div class="card__like"><i class="fa-regular fa-heart"></i></div></a>
+              <a><div class="card__like"><i class="fa fa-heart"></i></div></a>
              
           </div>
       `;
+     
     });
     accordionHTML += `
           </div>
@@ -60,10 +49,11 @@ function showGallery(currentArray) {
     `;
   }
   document.getElementById("container").innerHTML = accordionHTML;
+ 
 }
 
 
-// Searching section
+
 document.getElementById("searchBar").addEventListener("keyup", function () {
   const searchText = document.getElementById("searchBar").value.toLowerCase().trim();
   const filteredArray = galleryArray.filter(function (a) {
@@ -71,11 +61,25 @@ document.getElementById("searchBar").addEventListener("keyup", function () {
       a.title.toLowerCase().trim().includes(searchText) ||
       a.heading.toLowerCase().trim().includes(searchText) ||
       a.content.toLowerCase().trim().includes(searchText) ||
-      a.link.toLowerCase().trim().includes(searchText)   
+      (a.tags && a.tags.toLowerCase().trim().includes(searchText)) ||
+      a.link.toLowerCase().trim().includes(searchText)  
+  
       ); 
   });
 
-  
+  // Hide the hero container when the search text is not empty
+  if (searchText !== "") {
+    document.getElementById("hero").style.display = "none";
+  } else {
+    document.getElementById("hero").style.display = "block";
+  }
+
+   // Hide the hero container when the search text is not empty
+  if (searchText === "") {
+    document.getElementById("notfound").style.display = "none";
+  } else {
+    document.getElementById("notfound").style.display = "block";
+  }
   // Show all elements in original array or only the matching elements in the filtered array
   if (searchText === "") {
     showGallery(galleryArray);
@@ -89,6 +93,7 @@ document.getElementById("searchBar").addEventListener("keyup", function () {
     }
   }
 });
+
 
 
 
@@ -119,4 +124,11 @@ navCloseBtn.addEventListener("click", () => {
 document.querySelector('body').insertAdjacentHTML("beforeend",'<div class="loader"><div class="chaotic-orbit"></div></div>');
 window.addEventListener('load', function(){document.querySelector('.loader').remove()});
 
-
+navOpenBtn.addEventListener("click", () => {
+  nav.classList.add("openNav");
+  nav.classList.remove("openSearch");
+  searchIcon.classList.replace("uil-times", "uil-search");
+});
+navCloseBtn.addEventListener("click", () => {
+  nav.classList.remove("openNav");
+});

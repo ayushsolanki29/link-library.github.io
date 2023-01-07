@@ -98,7 +98,7 @@ a {
 }
 .accordion {
   margin: 20px auto;
-  width: 90%;
+  width:91%;
   cursor: text;
 }
 .accordion li {
@@ -163,6 +163,9 @@ a {
   position: relative;
   justify-content: center;
   z-index: 1;
+  height: 150px;
+  max-height: 200px;
+  display: inline-grid;
 
 }
 .toolCard > * + * {
@@ -208,7 +211,11 @@ a {
 .toolCard .card__date {
   color: #6e6b80;
   font-size: 0.8rem;
+  height: 20px;  /* add this line */
   margin: 0;
+  width: 200px;  /* add this line */
+  overflow-x: auto;  /* add this line */
+  overflow-y: auto;  /* add this line */
 }
 .toolCard a .card__arrow,.card__like{
   color: #111;
@@ -366,16 +373,25 @@ footer {
 }
 @keyframes animate {
   0% {
-    content: "Branding Tools";
+    content: "popular tools";
   }
-  20% {
-    content: "Branding Tools ";
+  15% {
+    content: "useful resources";
   }
-  40% {
-    content: "Branding Tools ";
+  30% {
+    content: "helpful services";
+  }
+  45% {
+    content: "resume and PDF tools";
   }
   60% {
-    content: "Branding Tools";
+    content: "Instagram tools";
+  }
+  75% {
+    content: "free cloud storage";
+  }
+  90% {
+    content: "Photoshop";
   }
   100% {
     content: "Branding Tools";
@@ -449,7 +465,7 @@ footer {
     display: block;
   }
   .accordion {
-    width: 340px;
+    width:min-content;
   }
   .contentContainer {
     margin-top: 130px;
@@ -459,7 +475,18 @@ footer {
   }
 }
 @media screen and (max-width: 368px) {
+  .hero h1{
+    font-size: 24px;
+  }
+  .hero h3{
+    font-size: 16px;
+  }
+  .hero p{
+    font-size: 13px;
+  }
+  
   .accordion {
     margin: 20px -9px;
+    width: 90%;
   }
 }

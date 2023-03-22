@@ -1,12 +1,5 @@
-"use strict";
-
-document.querySelector("body").insertAdjacentHTML("beforeend", '<div class="loader"><div class="chaotic-orbit"></div></div>');
-
-window.addEventListener("load", function () {
-  document.querySelector(".loader").remove();
-});
-
 let filterArray = [];
+
 showGallery(galleryArray);
 
 function showGallery(currentArray) {
@@ -67,68 +60,9 @@ document.getElementById("searchBar").addEventListener("keyup", function () {
     );
   });
 
-  if (searchText !== "") {
-    document.getElementById("hero").style.display = "none";
-  } else {
-    document.getElementById("hero").style.display = "block";
-  }
-  if (searchText === "") {
-    document.getElementById("notfound").style.display = "none";
-  } else {
-    document.getElementById("notfound").style.display = "block";
-  }
-  if (searchText === "") {
-    showGallery(galleryArray);
-  } else {
-    if (filteredArray.length === 0) {
-      document.getElementById("notfound").style.display = "block";
-      document.getElementById("container").innerHTML = "";
-    } else {
-      showGallery(filteredArray);
-      document.getElementById("notfound").style.display = "none";
-    }
-  }
+
 });
-const nav = document.querySelector(".nav"),
-  searchIcon = document.querySelector("#searchIcon"),
-  navOpenBtn = document.querySelector(".navOpenBtn"),
-  navCloseBtn = document.querySelector(".navCloseBtn");
-searchIcon.addEventListener("click", () => {
-  nav.classList.toggle("openSearch");
-  nav.classList.remove("openNav");
-  if (nav.classList.contains("openSearch")) {
-    return searchIcon.classList.replace("uil-search", "uil-times");
-  }
-  searchIcon.classList.replace("uil-times", "uil-search");
-});
-navOpenBtn.addEventListener("click", () => {
-  nav.classList.add("openNav");
-  nav.classList.remove("openSearch");
-  searchIcon.classList.replace("uil-times", "uil-search");
-});
-navCloseBtn.addEventListener("click", () => {
-  nav.classList.remove("openNav");
-});
-navOpenBtn.addEventListener("click", () => {
-  nav.classList.add("openNav");
-  nav.classList.remove("openSearch");
-  searchIcon.classList.replace("uil-times", "uil-search");
-});
-navCloseBtn.addEventListener("click", () => {
-  nav.classList.remove("openNav");
-});
-const shareButton = document.getElementById("shareBtn");
-const title = window.document.title;
-const url = window.document.location.href;
-shareButton.addEventListener("click", () => {
-  if (navigator.share) {
-    navigator
-      .share({ title: `${title}`, url: `${url}` })
-      .then(() => {
-        console.log("thanks For sharing!");
-      })
-      .catch(console.error);
-  } else {
-   document.write("Please use Mobile Device");
-  }
-});
+
+
+
+

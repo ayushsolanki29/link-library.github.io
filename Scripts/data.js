@@ -1,4 +1,3 @@
-"use strict";
 let galleryArray = [
   {
     heading: "Resume",

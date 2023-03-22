@@ -27,7 +27,7 @@ body {
   justify-content: space-between;
   z-index: 100000;
 }
-a {
+.nav a {
   color: #fff;
   text-decoration: none;
 }
@@ -163,14 +163,12 @@ a {
   position: relative;
   justify-content: center;
   z-index: 1;
-  height: 154px;
+  height: 164px;
   max-height: 200px;
   display: inline-grid;
-  overflow: scroll;
+ 
 }
-.toolCard::-webkit-scrollbar {
-    display: none;
-  }
+
 .toolCard > * + * {
   margin-top: 1.1em;
 }
@@ -261,8 +259,9 @@ footer {
   font-weight: 400;
   user-select: none;
   box-sizing: border-box;
-}
-.footer {
+
+  bottom: 0;
+  width: 100%;
   padding: 40px 0;
 }
 .footer .social {
@@ -350,6 +349,7 @@ footer {
 .hero #cow{
   color: #0080ff;
 }
+
 
 @keyframes animate {
   0% {

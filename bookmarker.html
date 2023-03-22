@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Bookmarker</title>
+  <link rel="stylesheet" href="Styles/bookmarker.css">
+<link rel="apple-touch-icon"
+  sizes="180x180"
+  href="/Source/Favicon/apple-touch-icon.png"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="32x32"
+  href="/Source/Favicon/favicon-32x32.png"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="16x16"
+  href="/Source/Favicon/favicon-16x16.png"
+/>
+<link rel="manifest" href="/Source/Favicon/site.webmanifest" />
+<link
+  rel="mask-icon"
+  href="/Source/Favicon/safari-pinned-tab.svg"
+  color="#5bbad5"
+/>
+<meta name="msapplication-TileColor" content="#da532c" />
+<meta name="theme-color" content="#ffffff" />
+<link rel="stylesheet" href="Styles/file2.css" />
+<link rel="stylesheet" href="Styles/index.css" />
+
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+  integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+</head>
+<body>
+
+<!DOCTYPE html>
+<html>
+
+<body>
+    <div class="navigation">
+        <nav class="nav">
+          <i class="uil uil-bars navOpenBtn"></i>
+          <a href="index.html" class="logo">Link Library</a>
+          <ul class="nav-links">
+            <i class="uil uil-times navCloseBtn"></i>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="bookmarker.html">Bookmarker</a></li>
+            <li><a href="solution.html">Solution</a></li>
+            <li><a href="404.html">Contact Us</a></li>
+          </ul>
+        
+          <i class="uil uil-search search-icon" id="searchIcon"></i>
+          <div class="search-box">
+            <i class="uil uil-search search-icon"></i>
+            <input
+              type="search"
+              id="searchBar"
+              autofocus
+              aria-autocomplete="inline"
+              placeholder="Search here..."
+            />
+          </div>
+        </nav>
+      </div>
+      <div class="hero" id="hero" style="margin-top: 70px;">
+        <h3>Bookmark your world, one click at a time.</h3>
+  
+      </div>
+    <div class="container">
+      
+        <div class="row">
+            <div class="col-12 mt-3">
+               
+                <div class="p-3 formContainer">
+                    <h1 >Bookmark Your <span>Favorite Sites</span> </h1>
+                    <form class="boxContainer" id="bookmarkForm">
+                        <label for="siteNameInput">SITE NAME</label>
+                        <input class="form-control" placeholder="Enter site name" type="text" id="siteNameInput" required />
+                        <p id="siteNameErrMsg"></p>
+                        <label for="siteUrlInput">SITE URL</label>
+                        <input class="form-control" placeholder="Enter site url" type="text" id="siteUrlInput"required />
+                        <p id="siteUrlErrMsg"></p>
+                        <div class="text-right">
+                          <button class="deleteBtn" id="clearBtn" type="reset">Clear</button>
+                            <button class="button" id="submitBtn" type="submit">Submit</button>
+                        </div>
+                    </form>
+                    <div class="mt-3 boxContainer">
+                        <ul class="d-none" id="bookmarksList">
+                        </ul>
+                        <button class="deleteBtn" id="clearBtn" type="reset" onclick="clearBookmarks()">Clear All</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+  
+    
+    <footer >
+      <section class="footer">
+        <div class="social">
+          <a href="404.html" target="blank"> <i class="fab fa-instagram"></i></a>
+
+          <a href="https://github.com/ayushsolanki29" target="blank">
+            <i class="fab fa-github"></i
+          ></a>
+          <a href="404.html" target="blank">
+            <i class="fa-brands fa-linkedin-in"></i
+          ></a>
+          <a href="mailto:developer.ayushsolanki@gmail.com" target="blank"> <i class="fa-solid fa-envelope"></i></a>
+          <a target="blank" aria-disabled="true" style="cursor: pointer;">
+            <i class="fa fa-share-alt" id="shareBtn"></i
+          ></a>
+        </div>
+        <ul class="list">
+          <li>
+            <a href="index.html" >Home</a>
+          </li>
+          <li>
+            <a href="404.html">About</a>
+          </li>
+          <li>
+            <a href="404.html">Privacy & Policy</a>
+          </li>
+
+          <li>
+            <a href="404.html">Donate</a>
+          </li>
+        </ul>
+
+        <p class="copyright">
+          @ 2023 Devloped By
+          <a
+            href="https://www.instagram.com/ayushsolanki.exe/?igshid=YmMyMTA2M2Y="
+            target="_blank"
+          >
+            <span> ayushsolanki</span></a
+          >
+        </p>
+      </section>
+    </footer>
+</body>
+
+</html>
+<!-- partial -->
+
+  <script  src="Scripts/bookmarker.js"></script> 
+  <script src="Scripts/Main.js"></script> 
+  <script src="Scripts/Share.js"></script> 
+  <script src="Scripts/menu.js"></script> 
+
+</body>
+</html>

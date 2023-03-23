@@ -1,7 +1,6 @@
 function storeBookmark(siteName, siteURL) {
     let bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
-    let bookmarkID = Date.now().toString(); // generate a unique ID for each bookmark
-  
+    let bookmarkID = Date.now().toString();
     bookmarks.push({
       id: bookmarkID,
       name: siteName,
@@ -9,8 +8,8 @@ function storeBookmark(siteName, siteURL) {
     });
   
     localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
-  }
   
+  }
   let bookmarkForm = document.getElementById("bookmarkForm");
   let siteNameInput = document.getElementById("siteNameInput");
   let siteUrlInput = document.getElementById('siteUrlInput');
@@ -44,6 +43,7 @@ function storeBookmark(siteName, siteURL) {
     let bookmarkName = document.createElement("p");
     let bookmarkUrl = document.createElement("a");
     let deleteBtn = document.createElement("button");
+    let shareBtn = document.createElement("button"); // new button
   
     bookmarkName.textContent = siteName;
     bookmarkUrl.textContent = siteURL;
@@ -53,12 +53,37 @@ function storeBookmark(siteName, siteURL) {
     deleteBtn.textContent = "Delete";
     deleteBtn.classList.add("delete-btn");
   
+    shareBtn.textContent = "Share"; // set text content of share button
+    shareBtn.classList.add("share-btn"); // add class to share button
+  
     listItem.appendChild(bookmarkName);
     listItem.appendChild(bookmarkUrl);
     listItem.appendChild(deleteBtn);
+    listItem.appendChild(shareBtn); // append share button to list item
   
     storeBookmark(siteName, siteURL);
+  
+    // attach event listener to share button
+    shareBtn.addEventListener("click", function(event) {
+      event.preventDefault();
+    
+      let bookmarkUrls = [];
+      let bookmarkNames = [];
+    
+      bookmarksList.querySelectorAll("li").forEach(function(listItem) {
+        bookmarkUrls.push(listItem.querySelector("a").href);
+        bookmarkNames.push(listItem.querySelector("p").textContent);
+      });
+    
+      let combinedData = "URLs: " + bookmarkUrls.join(", ") + "\n\nNames: " + bookmarkNames.join(", ");
+      let newWindow = window.open("share.html?id=" + Date.now(), "Bookmark Data", "width=600,height=400");
+      newWindow.addEventListener("load", function() {
+        newWindow.document.write("<pre>" + combinedData + "</pre>");
+      });
+    });
+    
   }
+  
   
   window.addEventListener("load", function() {
     let bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];

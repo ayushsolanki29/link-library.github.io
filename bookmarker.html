@@ -2,8 +2,8 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Bookmarker</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bookmarker</title>
   <link rel="stylesheet" href="Styles/bookmarker.css">
 <link rel="apple-touch-icon"
   sizes="180x180"
@@ -95,10 +95,12 @@
                             <button class="button" id="submitBtn" type="submit">Submit</button>
                         </div>
                     </form>
-                    <div class="mt-3 boxContainer">
+                    <div class="mt-3 boxContainer" id="boxCont">
+                      
                         <ul class="d-none" id="bookmarksList">
                         </ul>
-                        <button class="deleteBtn" id="clearBtn" type="reset" onclick="clearBookmarks()">Clear All</button>
+                        <button class="deleteBtn" id="deleteBtn" type="reset" onclick="clearBookmarks()">Clear All</button>
+                
                     </div>
                 </div>
             </div>
@@ -108,54 +110,54 @@
     </div>
   
     
-    <footer >
-      <section class="footer">
-        <div class="social">
-          <a href="404.html" target="blank"> <i class="fab fa-instagram"></i></a>
-
-          <a href="https://github.com/ayushsolanki29" target="blank">
-            <i class="fab fa-github"></i
-          ></a>
-          <a href="404.html" target="blank">
-            <i class="fa-brands fa-linkedin-in"></i
-          ></a>
-          <a href="mailto:developer.ayushsolanki@gmail.com" target="blank"> <i class="fa-solid fa-envelope"></i></a>
-          <a target="blank" aria-disabled="true" style="cursor: pointer;">
-            <i class="fa fa-share-alt" id="shareBtn"></i
-          ></a>
-        </div>
-        <ul class="list">
-          <li>
-            <a href="index.html" >Home</a>
-          </li>
-          <li>
-            <a href="404.html">About</a>
-          </li>
-          <li>
-            <a href="404.html">Privacy & Policy</a>
-          </li>
-
-          <li>
-            <a href="404.html">Donate</a>
-          </li>
-        </ul>
-
-        <p class="copyright">
-          @ 2023 Devloped By
-          <a
-            href="https://www.instagram.com/ayushsolanki.exe/?igshid=YmMyMTA2M2Y="
-            target="_blank"
-          >
-            <span> ayushsolanki</span></a
-          >
-        </p>
-      </section>
-    </footer>
+    
 </body>
 
 </html>
 <!-- partial -->
+<footer >
+  <section class="footer">
+    <div class="social">
+      <a href="404.html" target="blank"> <i class="fab fa-instagram"></i></a>
 
+      <a href="https://github.com/ayushsolanki29" target="blank">
+        <i class="fab fa-github"></i
+      ></a>
+      <a href="404.html" target="blank">
+        <i class="fa-brands fa-linkedin-in"></i
+      ></a>
+      <a href="mailto:developer.ayushsolanki@gmail.com" target="blank"> <i class="fa-solid fa-envelope"></i></a>
+      <a target="blank" aria-disabled="true" style="cursor: pointer;">
+        <i class="fa fa-share-alt" id="shareBtn"></i
+      ></a>
+    </div>
+    <ul class="list">
+      <li>
+        <a href="index.html" >Home</a>
+      </li>
+      <li>
+        <a href="404.html">About</a>
+      </li>
+      <li>
+        <a href="404.html">Privacy & Policy</a>
+      </li>
+
+      <li>
+        <a href="404.html">Donate</a>
+      </li>
+    </ul>
+
+    <p class="copyright">
+      @ 2023 Devloped By
+      <a
+        href="https://www.instagram.com/ayushsolanki.exe/?igshid=YmMyMTA2M2Y="
+        target="_blank"
+      >
+        <span> ayushsolanki</span></a
+      >
+    </p>
+  </section>
+</footer>
   <script  src="Scripts/bookmarker.js"></script> 
   <script src="Scripts/Main.js"></script> 
   <script src="Scripts/Share.js"></script> 

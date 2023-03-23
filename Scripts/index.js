@@ -48,20 +48,7 @@ const cow = document.getElementById("cow");
 cow.textContent =  galleryArray.length + " websites";
 lowH1.appendChild(cow);
 
-document.getElementById("searchBar").addEventListener("keyup", function () {
-  const searchText = document.getElementById("searchBar").value.toLowerCase().trim();
-  const filteredArray = galleryArray.filter(function (a) {
-    return (
-      a.title.toLowerCase().trim().includes(searchText) ||
-      a.heading.toLowerCase().trim().includes(searchText) ||
-      a.content.toLowerCase().trim().includes(searchText) ||
-      (a.tags && a.tags.toLowerCase().trim().includes(searchText)) ||
-      a.link.toLowerCase().trim().includes(searchText)
-    );
-  });
 
-
-});
 
 
 

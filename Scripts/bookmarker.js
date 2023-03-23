@@ -44,7 +44,9 @@ function storeBookmark(siteName, siteURL) {
     let bookmarkUrl = document.createElement("a");
     let deleteBtn = document.createElement("button");
     let shareBtn = document.createElement("button"); // new button
-  
+    let dltSpan = document.createElement("span");
+    let boxContainer = document.getElementById("boxCont");
+    
     bookmarkName.textContent = siteName;
     bookmarkUrl.textContent = siteURL;
     bookmarkUrl.href = siteURL;
@@ -59,28 +61,37 @@ function storeBookmark(siteName, siteURL) {
     listItem.appendChild(bookmarkName);
     listItem.appendChild(bookmarkUrl);
     listItem.appendChild(deleteBtn);
-    listItem.appendChild(shareBtn); // append share button to list item
+    listItem.appendChild(shareBtn);
+    deleteBtn.appendChild(dltSpan);
+    boxContainer.appendChild(shareBtn);
   
     storeBookmark(siteName, siteURL);
-  
-    // attach event listener to share button
+   
+    
     shareBtn.addEventListener("click", function(event) {
       event.preventDefault();
     
-      let bookmarkUrls = [];
-      let bookmarkNames = [];
+      let bookmarkData = '';
     
       bookmarksList.querySelectorAll("li").forEach(function(listItem) {
-        bookmarkUrls.push(listItem.querySelector("a").href);
-        bookmarkNames.push(listItem.querySelector("p").textContent);
+        let bookmarkUrl = listItem.querySelector("a").href;
+        let bookmarkName = listItem.querySelector("p").textContent;
+        bookmarkData +="Name : "+ bookmarkName + '\n' +"URL  : " + bookmarkUrl + '\n\n';
       });
     
-      let combinedData = "URLs: " + bookmarkUrls.join(", ") + "\n\nNames: " + bookmarkNames.join(", ");
       let newWindow = window.open("share.html?id=" + Date.now(), "Bookmark Data", "width=600,height=400");
       newWindow.addEventListener("load", function() {
-        newWindow.document.write("<pre>" + combinedData + "</pre>");
+        newWindow.document.write(
+          "<!DOCTYPE html>   <title> Shared Bookmarks </title>"+
+          "<h1>Your Bookmarks</h1>" +
+          "<pre>" + bookmarkData + "</pre>"
+        );
       });
+      
+      shareBtn.removeEventListener("click", arguments.callee);
     });
+    
+    
     
   }
   
@@ -116,11 +127,13 @@ function storeBookmark(siteName, siteURL) {
   
       localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
       listItem.remove();
+      
     }
   });
   
+  
   function clearBookmarks() {
-    let confirmClear = confirm("Do you really want to clear all bookmarks?");
+    let confirmClear = confirm("Do you really want to Clear all bookmarks ?");
   
     if (confirmClear) {
       bookmarksList.innerHTML = "";
@@ -146,4 +159,4 @@ function storeBookmark(siteName, siteURL) {
       console.error(error);
     }
   });
-  
+
